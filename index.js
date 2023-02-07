@@ -28,12 +28,12 @@ for (let i = 0; i < formJSON.length; i++) {
 }
 
 // CHECK DATA FOR VALIDATION PURPOSE
-console.log(data);
+console.log(email);
 console.log(nama);
 console.log(result);
 console.log(
   "email: " +
-    data.length +
+    email.length +
     " nama: " +
     nama.length +
     " result: " +
@@ -52,12 +52,12 @@ const transporter = nodemailer.createTransport({
 
 route.post("/text-mail", async (req, res) => {
   const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-  for (let i = 0; i < data.length; i++) {
+  for (let i = 0; i < email.length; i++) {
     transporter.sendMail(
       {
         // DEPEND ON YOUR EMAIL
         from: "example",
-        to: data[i], 
+        to: email[i], 
         subject: "example",
         text: "example",
         html: `
